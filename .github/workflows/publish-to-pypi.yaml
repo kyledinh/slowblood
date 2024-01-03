@@ -27,7 +27,7 @@ jobs:
       - name: Build a binary wheel and a source tarball
         run: >-
           python -m
-          build
+          build pypi
           --sdist
           --wheel
           --outdir dist/
