@@ -20,7 +20,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+# dist/  github workflow uses this to push to pypi
 downloads/
 eggs/
 .eggs/

@@ -10,6 +10,6 @@ from .lib_pdf_manipulation import (
 )
 
 from .lib_settings import (
-  FineTuningSettings,
-  Config,
+  BasicInferenceRequest,
+  ArtifactNames,
 )

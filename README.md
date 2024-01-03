@@ -13,10 +13,16 @@
 
 Software | Version | Desc
 ---------|---------|--------------------------
-conda    |         | 
+conda    |         | `conda create --name slowblood python==3.10`
 python   | 3.10 +  |
 pip      |         | `apt install python3-pip`
 make     |         |
+
+### Conda commands
+
+- `conda env list`
+- `conda activate slowblood`
+- `conda deactivate`
 
 <br><hr><br>
 
@@ -32,3 +38,4 @@ make     |         |
 - https://huggingface.co/Slowblood
 - https://huggingface.co/
 - https://style-guides.readthedocs.io/en/latest/makefile.html
+- https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/

@@ -2,6 +2,7 @@
 
 VERSION = 1 
 
+# Used for prompt/request data 
 class BasicInferenceRequest:
   def __init__(self, token="", inference_url="", system_prompt="", content_prompt="", output_prompt=""):
     self.token = token
@@ -11,6 +12,7 @@ class BasicInferenceRequest:
     self.output_prompt = output_prompt
 
 
+# Used for metadata for Fine Tuning 
 class ArtifactNames:
   def __init__(self, base_model, new_model_name, repo_name, dataset):
     self.base_model = base_model
