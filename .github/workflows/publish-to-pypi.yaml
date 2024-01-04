@@ -1,9 +1,10 @@
-on: push
-  # push:
-  #   branches:
-  #     - 'releases/**'
+on:
+  push:
+    branches:
+      - 'releases/**'
 
 # .github/workflows/ci-cd.yml
+# https://github.com/pypa/gh-action-pypi-publish
 jobs:
   pypi-publish:
     name: Upload release to PyPI
@@ -40,4 +41,5 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
+          url: https://pypi.org/p/slowblood
           packages-dir: pypi/dist/

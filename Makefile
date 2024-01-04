@@ -25,11 +25,12 @@ setup:
 ## pypi slowblood package targets 
 pkg-build:
 	@echo "Building pypi gpt-prive package"
+	@rm -rf pypi/dist
 	@cd pypi && python -m build 
 
 pkg-push:
-	@echo "Pusing gpt-prive package to pypi"
-	@cd pypi && python -m twine upload --repository pypi dist/* 
+	@echo "Pusing slowblood package to pypi"
+	@cd pypi && python -m twine upload --repository pypi dist/* --verbose
 
 
 ## RUNPOD

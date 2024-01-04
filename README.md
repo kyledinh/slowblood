@@ -32,6 +32,40 @@ make     |         |
 - `make pkg-build` - Builds a Python package with version in setup.cfg  
 - `make pkg-push` - Push the Python package to Pypi for pip installation 
 
+<br>
+
+
+### Required Dependencies 
+- build, twine
+
+### Build
+- Update `src/*` and update `setup.conf`
+- Builds to `dist/` directory
+```
+python -m build
+```
+- Push to PyPi with twine
+```
+python -m twine upload --repository pypi dist/*
+```
+
+### Setup
+- Create API key in PyPI account
+- Add to `~/.pypirc`
+```
+[distutils]
+index-servers =
+    pypi
+    testpypi
+
+[pypi]
+  username = __token__
+  password = pypi-AgszLCJ-Cut-And-P@aste-The-API-K#y-From-Your-AccountlZ7-mow
+
+[testpypi]
+repository = https://test.pypi.org/legacy/
+```
+
 <br><hr><br>
 
 ## Resources
