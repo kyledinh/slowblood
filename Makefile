@@ -44,7 +44,6 @@ deploy-codellama:
 
 deploy-notebook:
 	@echo "Deploy a Python Notebook Server to Run Pod"
-	@echo "!!!!! DOES NOT WORK YET, need to find the correct Docker image to run the Jupyter Notebook and env settings!!!!!!"
-	@echo "TRY MANUALLY:"
-	open https://www.runpod.io/console/gpu-secure-cloud
-#python cli-deploy-to-runpod-notebook.py	
+	python cli-deploy-to-runpod-notebook.py	
+	open https://www.runpod.io/console/pods
+# open https://www.runpod.io/console/gpu-secure-cloud

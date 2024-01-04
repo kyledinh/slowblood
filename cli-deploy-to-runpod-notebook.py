@@ -16,8 +16,8 @@ print("RUNPOD_API_KEY: " + runpod.api_key[0:6])
 
 
 ## VARS FOR MODEL AND GPU
-podname = "Slowblood-llama2-13B"
-model = "codellama/CodeLlama-13b-Instruct-hf"
+podname = "Slowblood-Notebook"
+# model = "codellama/CodeLlama-13b-Instruct-hf"
 
 envs = {"HUGGING_FACE_HUB_TOKEN":HF_ACCESS_TOKEN, 
         #"QUANTIZE":"gptq", 
@@ -25,7 +25,11 @@ envs = {"HUGGING_FACE_HUB_TOKEN":HF_ACCESS_TOKEN,
         "MAX_TOTAL_TOKENS": json.dumps(23040),
         "MAX_BATCH_BATCH_TOKENS": json.dumps(23040),
         "MAX_BATCH_PREFILL_TOKENS": json.dumps(16384),
+        "JUPYTER_MODE":"notebook",
         "JUPYTER_PASSWORD":"foocat",
+        "WEB_USER":"slowblood",
+        "WEB_PASSWORD":"foocat",
+        "WORKSPACE":"/workspace",
         }
 
 gpu_type_id = "NVIDIA RTX A6000" # 48GB VRAM $0.79/hr
@@ -36,8 +40,6 @@ pod = runpod.create_pod(
     image_name="runpod/pytorch:3.10-2.0.1-118-runtime",
     gpu_type_id=gpu_type_id,
     cloud_type="SECURE",
-    data_center_id="US-KS-1",
-    docker_args="--model-id " + model,
     gpu_count=gpu_count,
     volume_in_gb=50,
     container_disk_in_gb=20,
@@ -45,6 +47,8 @@ pod = runpod.create_pod(
     volume_mount_path="/workspace",
     env=envs,
 )
+    # data_center_id="US-KS-2",
+    # docker_args="--model-id " + model,
 
 SERVER_URL = f'https://{pod["id"]}-80.proxy.runpod.net'
 print(SERVER_URL)
@@ -53,6 +57,7 @@ print(f"Docs (Swagger UI) URL: {SERVER_URL}/docs")
 ## Updates .env file with new  
 env_file = open(".env", "a")  # append mode
 env_file.write("\nRP_NB_ENDPOINT_URL=" + SERVER_URL + "\n")
+env_file.write("RP_CURRENT_ID=" + {pod["id"]} + "\n")
 env_file.close()
 
 
