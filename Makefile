@@ -33,6 +33,10 @@ pkg-push:
 
 
 ## RUNPOD
+rp-info:
+	@echo "Getting info and available GPUs"
+	python cli-get-info-runpod.py
+
 deploy-codellama:
 	@echo "Deploy a 13B CodeLlama with 32K Context LLM to Run Pod"
 	python cli-deploy-to-runpod-codellama-13B.py
