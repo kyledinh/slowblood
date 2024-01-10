@@ -3,7 +3,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from huggingface_hub import InferenceClient
 
-def InvoiceToChatGPT3_5(content: str, template: str, data_points):
+def invoice_to_chatgpt3_5(content: str, template: str, data_points):
   llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613")
 
   if template == "":
@@ -31,7 +31,7 @@ def InvoiceToChatGPT3_5(content: str, template: str, data_points):
 
   return results
 
-def InvoiceToHFLlama13B(content: str, template: str, data_points, hf_token, endpoint_url):
+def invoice_to_hf_llama(content: str, template: str, data_points, hf_token, endpoint_url):
 
   client = InferenceClient(token=hf_token, model=endpoint_url)
 

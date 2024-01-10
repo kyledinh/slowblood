@@ -3,7 +3,7 @@ from PIL import Image
 from io import BytesIO
 import pypdfium2
 
-def ConvertPdfToImages(file_path, scale=300/72):
+def convert_pdf_to_images(file_path, scale=300/72):
   pdf_file = pypdfium2.PdfDocument(file_path)
 
   page_indices = [i for i in range(len(pdf_file))]
@@ -25,7 +25,7 @@ def ConvertPdfToImages(file_path, scale=300/72):
   return final_images
 
 
-def ExtractTextFromImgs(list_dict_final_images):
+def extract_text_from_imgs(list_dict_final_images):
   image_list = [list(data.values())[0] for data in list_dict_final_images]
   image_content = []
   
@@ -37,8 +37,8 @@ def ExtractTextFromImgs(list_dict_final_images):
   return "\n".join(image_content)
 
 
-def ExtractTextFromPdf(url: str):
-  images_list = ConvertPdfToImages(url)
-  text_with_pytesseract = ExtractTextFromImgs(images_list)
+def extract_text_from_pdf(url: str):
+  images_list = convert_pdf_to_images(url)
+  text_with_pytesseract = extract_text_from_imgs(images_list)
 
   return text_with_pytesseract

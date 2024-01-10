@@ -6,6 +6,7 @@
 
 - [Software Requirements](#software-requirements)
 - [pypi](#pypi)
+- [Deploying Environments with GPUs](#deploying-environments)
 
 <br><hr><br>
 
@@ -27,6 +28,8 @@ make     |         |
 <br><hr><br>
 
 ## Pypi 
+> Commands to build and push the `slowblood` python package, make sure to update the version in `setup.cfg`
+
 - `make check` - Inspect for install versions
 - `make setup` - Setup files and directories (.env)
 - `make pkg-build` - Builds a Python package with version in setup.cfg  
@@ -65,6 +68,16 @@ index-servers =
 [testpypi]
 repository = https://test.pypi.org/legacy/
 ```
+
+<br><hr><br>
+
+
+## Deploying Environments 
+> Helpful scripts and Make targets to deploy work environments with GPUs, using RunPod and its API.
+
+- `make deploy-notebook` will deploy a Juptyer server 
+- `make deploy-codellama` will deploy a CodeLlama 13B with 32K context window Inference Server to a RunPod
+- `make list` - shows available Make targets 
 
 <br><hr><br>
 
