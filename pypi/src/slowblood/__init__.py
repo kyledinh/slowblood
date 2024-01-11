@@ -10,7 +10,6 @@ from .lib_llm_inference import (
 )
 
 from .lib_model import (
-  BITS_AND_BYTES_CONFIG_4BITS,
   load_peft_model_with_adpaters,
   print_trainable_parameters,
 )

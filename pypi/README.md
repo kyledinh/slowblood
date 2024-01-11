@@ -9,6 +9,8 @@
 
 - TODO 
 
+## Required Dependencies
+
 ## Package Structs, Methods and Consts 
 
 ### Datasets 
@@ -19,7 +21,7 @@
 
 ### Model
 
-- `BITS_AND_BYTES_CONFIG_4BITS`
+- `BITS_AND_BYTES_CONFIG_4BIT`
 - `load_peft_model_with_adapters()` 
 - `print_trainable_parameters()`
 

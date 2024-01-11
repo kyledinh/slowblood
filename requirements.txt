@@ -1,4 +1,4 @@
-langchain==0.0.177
+langchain
 gpt4all==0.2.3
 chromadb==0.3.23
 urllib3==2.0.2
@@ -9,6 +9,8 @@ extract-msg==0.41.1
 tabulate==0.9.0
 pandoc==2.3
 pypandoc==1.11
+pytesseract
+pypdfium2
 tqdm==4.65.0
 twine
 build
