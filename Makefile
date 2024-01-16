@@ -15,7 +15,11 @@ check:
 	@echo "PIP: $(shell pip3 --version)"
 	@echo "REPO_DIR: $(REPO_DIR)"
 	@cd scripts && ./check-cpu.sh
+	@cd scripts && ./check-installed.sh
 	@echo $(ARG)
+
+conda:
+	conda create --name slowblood python=3.10.12
 
 setup:
 	@echo "SETUP:"
@@ -45,5 +49,10 @@ deploy-codellama:
 deploy-notebook:
 	@echo "Deploy a Python Notebook Server to Run Pod"
 	python cli-deploy-to-runpod-notebook.py	
+	open https://www.runpod.io/console/pods
+
+deploy-trelis-notebook:
+	@echo "Deploy a Python Notebook Server to Run Pod"
+	python cli-deploy-to-runpod-trelis-notebook.py	
 	open https://www.runpod.io/console/pods
 # open https://www.runpod.io/console/gpu-secure-cloud

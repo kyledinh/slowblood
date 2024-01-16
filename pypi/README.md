@@ -11,6 +11,13 @@
 
 ## Required Dependencies
 
+```
+pip install -qU git+https://github.com/huggingface/transformers.git
+pip install -qU git+https://github.com/huggingface/peft.git
+pip install -qU git+https://github.com/huggingface/accelerate.git
+```
+
+
 ## Package Structs, Methods and Consts 
 
 ### Datasets 

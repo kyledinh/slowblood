@@ -16,7 +16,7 @@ print("RUNPOD_API_KEY: " + runpod.api_key[0:6])
 
 
 ## VARS FOR MODEL AND GPU
-podname = "Slowblood-Notebook"
+podname = "Slowblood-Trelis-Notebook"
 # model = "codellama/CodeLlama-13b-Instruct-hf"
 
 envs = {"HUGGING_FACE_HUB_TOKEN":HF_ACCESS_TOKEN, 
@@ -37,13 +37,12 @@ gpu_count = 1
 
 pod = runpod.create_pod(
     name=podname,
-    # image_name="runpod/pytorch:3.10-2.0.1-118-runtime", # BROKEN
     image_name="runpod/pytorch:2.1.1-py3.10-cuda12.1.1-devel-ubuntu22.04",
     gpu_type_id=gpu_type_id,
     cloud_type="SECURE",
     gpu_count=gpu_count,
     volume_in_gb=50,
-    container_disk_in_gb=20,
+    container_disk_in_gb=10,
     ports="80/http,8888/http",
     volume_mount_path="/workspace",
     env=envs,
@@ -51,7 +50,9 @@ pod = runpod.create_pod(
     # data_center_id="US-KS-2",
     # docker_args="--model-id " + model,
 
-SERVER_URL = f'https://{pod["id"]}-80.proxy.runpod.net'
+print("POD: ", pod)
+
+SERVER_URL = f"https://{pod['id']}-80.proxy.runpod.net"
 print(SERVER_URL)
 print(f"Docs (Swagger UI) URL: {SERVER_URL}/docs")
 
@@ -64,3 +65,6 @@ env_file.close()
 
 ## REFERENCES
 # https://docs.runpod.io/docs/create-pod
+# Trelis Template Fine Tuning Notebook: https://www.runpod.io/console/gpu-secure-cloud?template=ifyqsvjlzj
+# `runpod/pytorch:2.1.1-py3.10-cuda12.1.1-devel-ubuntu22.04`
+# https://youtu.be/Kd4JL7GnR8Y?si=AYtzifSODtnHG6ij&t=157

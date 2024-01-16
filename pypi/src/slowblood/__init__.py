@@ -14,7 +14,7 @@ from .lib_model import (
   print_trainable_parameters,
 )
 
-from .lib_pdf_manipulation import (
+from .lib_pdf import (
     convert_pdf_to_images,
     extract_text_from_pdf, 
     extract_text_from_imgs, 

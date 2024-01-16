@@ -2,7 +2,7 @@ from transformers import AutoTokenizer
 
 def get_tokenizer_for_model(model, cache_dir, debug=False):
 
-  tokenizer = AutoTokenizer(model, cache_dir)
+  tokenizer = AutoTokenizer.from_pretrained(model, cache_dir)
   tokenizer.padding_side='right'
 
   # Add the pad token if missing the tokenizer vocabulary
