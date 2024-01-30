@@ -1,4 +1,3 @@
-langchain
 gpt4all==0.2.3
 chromadb==0.3.23
 urllib3==2.0.2
@@ -14,6 +13,13 @@ pypdfium2
 tqdm==4.65.0
 twine
 build
+
+datasets
+bitsandbytes
+langchain
+peft
+text-generation
+torch
 
 runpod==0.10.0
 requests==2.31.0 

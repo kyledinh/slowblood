@@ -109,3 +109,6 @@ def generate_from_dataset_llama2(index, data, model, tokenizer):
 
     print("Generated Assistant Response: ", output_text, "\n")
     print("Correct Assistant Response:", correct_answer, "\n")
+
+def get_info_for_dataset():
+    print("dataset: info")

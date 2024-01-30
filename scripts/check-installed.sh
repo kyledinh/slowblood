@@ -9,6 +9,14 @@ function fn_check_conda {
   fi
 }
 
+function fn_check_cuda {
+  if command -v nvcc >/dev/null 2>&1; then
+    nvcc --version
+  else
+    echo "!!! CUDA is not installed."; 
+  fi
+}
+
 function fn_check_docker {
   if command -v docker >/dev/null 2>&1; then
     docker --version
@@ -33,12 +41,37 @@ function fn_check_python {
   fi
 }
 
+function fn_check_pypi_module {
+  MODULE=$1
+  MODULE_VERSION=$(pip list | grep $MODULE)
+  if [[ $MODULE_VERSION ]]; then
+    echo "$MODULE_VERSION is installed."
+  else
+    echo "NOT installed: $MODULE"
+  fi
+}
+
+
 ## MAIN
+echo; echo;
+echo "#####################################" 
 echo "Checking installed software packages:"
-echo "docker, conda, make"
+echo "docker, conda, cuda, make, python and pip dependencies"
 echo
 
 fn_check_docker
 fn_check_conda
+fn_check_cuda
 fn_check_make
 fn_check_python
+
+echo
+echo "Slowblood installed module dependencies: "
+fn_check_pypi_module build 
+fn_check_pypi_module twine
+echo 
+fn_check_pypi_module gpt4all 
+fn_check_pypi_module huggingface_hub 
+fn_check_pypi_module python-dotenv 
+fn_check_pypi_module runpod 
+fn_check_pypi_module transformers 

@@ -1,5 +1,4 @@
 import runpod
-import json 
 import os
 from dotenv import load_dotenv, find_dotenv
 
@@ -20,3 +19,10 @@ for gpu in runpod.get_gpus():
     # print(gpu)
     detail = runpod.get_gpu(gpu["id"])
     print(detail)
+
+# OR in slowblood module:
+# with RUNPOD_API_KEY in .env or ENVIRONMENT
+# slowblood.runpod_get_available_gpus()
+
+# OR from shell:
+# python -c "import slowblood;slowblood.runpod_get_available_gpus()"

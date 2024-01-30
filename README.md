@@ -15,12 +15,13 @@
 Software | Version | Desc
 ---------|---------|--------------------------
 conda    |         | `conda create --name slowblood python==3.10`
-python   | 3.10 +  |
+python   | 3.10.12 | `python --version`
 pip      |         | `apt install python3-pip`
 make     |         |
 
 ### Conda commands
 
+- `make conda` - (run once to create the "slowblood" environment)
 - `conda env list`
 - `conda activate slowblood`
 - `conda deactivate`
@@ -78,6 +79,18 @@ repository = https://test.pypi.org/legacy/
 - `make deploy-notebook` will deploy a Juptyer server 
 - `make deploy-codellama` will deploy a CodeLlama 13B with 32K context window Inference Server to a RunPod
 - `make list` - shows available Make targets 
+
+<br><hr><br>
+
+## Local Usage for Development, import from local file system
+
+```
+import sys
+sys.path.append('/Users/kyle/src/github.com/kyledinh/slowblood')
+from pypi.src import slowblood 
+
+slowblood.help()
+```
 
 <br><hr><br>
 
