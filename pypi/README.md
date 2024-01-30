@@ -59,6 +59,7 @@ pip install -qU git+https://github.com/huggingface/accelerate.git
 - `print_trainable_parameters()`
 
 ### PDF Manipulation 
+> This functions will require tesseract-ocr to be installed - https://github.com/tesseract-ocr/tesseract
 
 - `convert_pdf_to_images()`
 - `extract_text_from_pdf()` 

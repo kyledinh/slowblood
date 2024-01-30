@@ -46,5 +46,5 @@ def runpod_get_available_gpus():
     return runpod_info(rp_api_key)
 
 def help():
-    print("Help!", " version 0.1.1", " Jan 29, 2024")
+    print("Help!", " version 0.1.2", " Jan 29, 2024")
     print("Go to https://pypi.org/project/slowblood/ for more information.")
