@@ -8,7 +8,7 @@ from app.config import const as kon
 import slowblood
 
 
-class CurrentProject:
+class ProjectView:
     class Model:
         subheader_2 = "Upload PDF of Invoice"
         content_text = None

@@ -37,3 +37,11 @@ def set_sess(key, val):
     else:
         print(f"{key}: <- key not found in st.session_state")
         st.session_state[key] = val 
+
+# checks if ['ui_width','device_type','device_width']
+def any_not_in_sess(arr):
+    for a in arr:
+        if a not in st.session_state:
+            return True
+    
+    return False
