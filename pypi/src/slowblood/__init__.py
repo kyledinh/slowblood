@@ -48,3 +48,4 @@ def runpod_get_available_gpus():
 def help():
     print("Help!", " version 0.1.2", " Jan 29, 2024")
     print("Go to https://pypi.org/project/slowblood/ for more information.")
+    return "Slowblood Python Module v0.1.2, help()"

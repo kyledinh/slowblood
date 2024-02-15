@@ -18,3 +18,12 @@ def runpod_info(api_key):
   for gpu in runpod.get_gpus():
       detail = runpod.get_gpu(gpu["id"])
       print(detail)
+
+def runpod_get_pods(api_key):
+  runpod.api_key = api_key 
+  print("pods: ")
+  for pod in runpod.get_pods():
+    print(pod)
+
+
+## https://github.com/runpod/runpod-python

@@ -61,3 +61,6 @@ deploy-trelis-notebook:
 	python cli-deploy-to-runpod-trelis-notebook.py	
 	open https://www.runpod.io/console/pods
 # open https://www.runpod.io/console/gpu-secure-cloud
+
+run-st-dev:
+	@cd streamlit-ui && streamlit run main.py --server.port=7860 --server.address=0.0.0.0;
