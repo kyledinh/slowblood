@@ -20,6 +20,12 @@ class Constants():
     DEVICE_WIDTH = 'device_width'
     UI_WIDTH = 'ui_width'
 
+    CSV_DATA = 'csv_data'
+    CSV_FILE = 'csv_file'
+    JSON_DATA = 'json_data'
+    JSON_FILE = 'json_file'
+    JSON_FILE_UPLOADED = 'json_file_uploaded'
+
     # VALUES
     DEFAULT = 'default'
     DESKTOP = 'desktop'

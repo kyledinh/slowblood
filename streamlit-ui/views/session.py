@@ -8,3 +8,8 @@ class SessionView:
     def view(self, model):
         st.title(model.page_title)
         st.write("Session State")
+
+        st.markdown("------------")
+
+        st.header("SESSION_STATE:")
+        st.write(st.session_state)

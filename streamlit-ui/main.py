@@ -16,6 +16,7 @@ from app.utilities import load_css
 from app.session import any_not_in_sess, get_sess, get_sess_or_blank, get_sess_or_undefined, set_sess
 
 from views.about import AboutView
+from views.csv import CsvView
 from views.project import ProjectView 
 from views.session import SessionView 
 
@@ -30,21 +31,27 @@ load_css()
 class Model:
     sidebar_title = "Slowblood App"
     tab_about = "About"
+    tab_csv = "CSV"
     tab_project = "Project"
     tab_session = "Session"
+    tab_runpod = "Runpod"
+    tab_huggingface = "Huggingface"
 
-    icon_about = "chat"
-    icon_project = "stack"
-    icon_session = "sliders"
-    icon_menu = "globe-americas"
+    icon_about = "person-badge"
+    icon_csv = "file-earmark-ruled"
+    icon_project = "folder-fill"
+    icon_session = "database-check"
+    icon_menu = "stack"
+    icon_runpod = "gpu-card"
+    icon_huggingface = "emoji-laughing-fill"
 
 
 def view(model):
     with st.sidebar:
         menuItem = option_menu(
             model.sidebar_title,
-            [model.tab_project, model.tab_session, model.tab_about],
-            icons=[model.icon_project, model.icon_session, model.icon_about],
+            [model.tab_project, model.tab_csv, model.tab_session, model.tab_about],
+            icons=[model.icon_project, model.icon_csv, model.icon_session, model.icon_about],
             menu_icon=model.icon_menu,
             default_index=0,
             styles=config.sidebar_styles
@@ -74,6 +81,10 @@ def view(model):
         else:
             ProjectView().view(ProjectView.Model(), get_sess(const.UI_WIDTH), get_sess(const.DEVICE_TYPE), get_sess(const.DEVICE_WIDTH))
             logout_widget()
+
+    if menuItem == model.tab_csv:
+        CsvView().view(CsvView.Model())
+        logout_widget()
 
     if menuItem == model.tab_session:
         SessionView().view(SessionView.Model())

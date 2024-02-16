@@ -175,3 +175,6 @@ ign
 ignored
 ign-*
 ign_*
+
+workdir/*.csv
+workdir/*.json
