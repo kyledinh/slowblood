@@ -24,7 +24,6 @@ class Constants():
     CSV_FILE = 'csv_file'
     JSON_DATA = 'json_data'
     JSON_FILE = 'json_file'
-    JSON_FILE_UPLOADED = 'json_file_uploaded'
 
     # VALUES
     DEFAULT = 'default'

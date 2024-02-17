@@ -1,4 +1,7 @@
 import streamlit as st
+import csv 
+import json
+import os
 
 from app.config import const
 
@@ -45,3 +48,29 @@ def any_not_in_sess(arr):
             return True
     
     return False
+
+def rename_file_to(file_name, new_ext):
+    if os.path.isfile(file_name):
+        base = os.path.splitext(file_name)[0]
+        os.rename(file_name, base + "." + new_ext)
+
+def convert_json_to_csv(file_name):
+    if os.path.isfile(file_name):
+        base = os.path.splitext(file_name)[0]
+
+        with open(file_name) as json_file:
+            jsondata = json.load(json_file)
+        
+        data_file = open(base + '.csv', 'w', newline='')
+        csv_writer = csv.writer(data_file)
+        
+        count = 0
+        for data in jsondata:
+            if count == 0:
+                header = data.keys()
+                csv_writer.writerow(header)
+                count += 1
+            csv_writer.writerow(data.values())
+        
+        data_file.close()
+        set_sess(const.CSV_FILE, base + ".csv")

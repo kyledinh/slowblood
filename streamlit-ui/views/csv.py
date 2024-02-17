@@ -4,9 +4,10 @@ import os
 import time
 
 import streamlit as st
+import pandas as pd
 import slowblood
 from app.config import const 
-from app.session import seed_with_default, seed_to_dirty, get_sess, get_sess_or_blank, get_sess_or_default, get_sess_or_undefined, set_sess
+from app.session import seed_with_default, seed_to_dirty, get_sess, get_sess_or_blank, get_sess_or_default, get_sess_or_undefined, set_sess, convert_json_to_csv
 
 class CsvView:
     class Model:
@@ -49,8 +50,8 @@ class CsvView:
             st.title(model.initial_msg)
 
     def upload_file(self, workdir, uploaded_file):
-        timestamp = str(time.time())
-        timestamp = timestamp.replace(".", "")
+        # timestamp = str(time.time())
+        # timestamp = timestamp.replace(".", "")
         project_id = get_sess_or_undefined(const.PROJECT_ID)
 
         file_name, file_extension = os.path.splitext(uploaded_file.name)
@@ -78,11 +79,27 @@ class CsvView:
     def render_results(self, model):
 
         if get_sess(const.JSON_FILE) is not None:
+
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.button("Convert JSON to CSV", on_click=convert_json_to_csv(get_sess(const.JSON_FILE)), type="primary")
+            # with col2:
+                # st.button("Convert ...", on_click=convert_json_to_csv(get_sess(const.JSON_FILE)), type="secondary")
+
             with st.expander("Edit JSON DATA"):
                 json_data = get_sess_or_undefined(const.JSON_DATA)
+                st.json(json_data)
+
+            with st.expander("View JSON DATA"):
                 new_json_data = st.text_area("JSON FILE:", json_data, height=400)
                 if new_json_data:
                     set_sess(const.JSON_DATA, new_json_data)  
+                
+        if get_sess(const.CSV_FILE) is not None:
+            with st.expander("View CSV Data"):
+                csv_df = pd.read_csv(get_sess(const.CSV_FILE))
+                st.write(csv_df)
+
 
 
    

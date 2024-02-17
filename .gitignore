@@ -176,5 +176,5 @@ ignored
 ign-*
 ign_*
 
-workdir/*.csv
-workdir/*.json
+streamlit-ui/workdir/*.csv
+streamlit-ui/workdir/*.json
