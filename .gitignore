@@ -175,3 +175,6 @@ ign
 ignored
 ign-*
 ign_*
+
+streamlit-ui/workdir/*.csv
+streamlit-ui/workdir/*.json

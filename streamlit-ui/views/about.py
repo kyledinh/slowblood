@@ -2,12 +2,12 @@ import streamlit as st
 from PIL import Image
 from app.st_functions import st_button
 
-class About:
+class AboutView:
     class Model:
-        pageTitle = "About"
+        page_title = "About"
 
     def view(self, model):
-        # st.title(model.pageTitle)
+        st.title(model.page_title)
 
         st.write(
             "[![Star](https://img.shields.io/github/stars/kyledinh/slowblood.svg?logo=github&style=social)](https://github.com/kyledinh/slowblood)")

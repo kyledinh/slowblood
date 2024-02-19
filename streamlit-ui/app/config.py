@@ -16,11 +16,21 @@ class Constants():
     SEEDED = 'seeded'
     WORKDIR = 'workdir'
 
+    DEVICE_TYPE = 'device_type'
+    DEVICE_WIDTH = 'device_width'
+    UI_WIDTH = 'ui_width'
+
+    CSV_DATA = 'csv_data'
+    CSV_FILE = 'csv_file'
+    JSON_DATA = 'json_data'
+    JSON_FILE = 'json_file'
 
     # VALUES
     DEFAULT = 'default'
+    DESKTOP = 'desktop'
     DIRTY = 'dirty'
     DRAFT = 'draft'
+    MOBILE = 'mobile'
     UNDEFINED = 'undefined'
 
 ## VARS
